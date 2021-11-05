@@ -38,7 +38,7 @@ echo "priority optional" >> ./conf/options
 
 reprepro includedeb "$codename" *.deb
 
-apt-get install -y ca-certificates
+update-ca-certificates
 
 rm -rf ./conf
 rm -f *.deb
