@@ -1,0 +1,10 @@
+name: 'Build Debian packages'
+inputs:
+  pkg-name:
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  
+  env:
+    pkg_name: ${{ inputs.pkg-name }}

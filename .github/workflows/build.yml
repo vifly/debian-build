@@ -1,0 +1,50 @@
+name: BUILD
+
+on:
+  push:
+  schedule:
+    - cron:  '1 */72 * * *'
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        pkgs: [fcitx5-pinyin-moegirl]
+
+      fail-fast: false
+      
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - uses: ./build-deb-pkg-action
+      with:
+        pkg-name: ${{ matrix.pkgs }}
+    
+    - uses: actions/upload-artifact@v2
+      with:
+        path: ${{ matrix.pkgs }}/*.deb
+        name: ${{ matrix.pkgs }}
+          
+  createDBandUpload:      
+    runs-on: ubuntu-latest
+    needs: [build]
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - uses: actions/download-artifact@v2
+      
+      - uses: ./create-db-and-upload-action
+        with:
+          name: Vifly
+          description: Vifly repository
+          gpg-privatekey: ${{ secrets.gpg_private_key }}
+          RCLONE_ONEDRIVE_CLIENT_ID: ${{ secrets.RCLONE_ONEDRIVE_CLIENT_ID }}
+          RCLONE_ONEDRIVE_CLIENT_SECRET: ${{ secrets.RCLONE_ONEDRIVE_CLIENT_SECRET }}
+          RCLONE_ONEDRIVE_REGION: global
+          RCLONE_ONEDRIVE_TOKEN: ${{ secrets.RCLONE_ONEDRIVE_TOKEN }}
+          RCLONE_ONEDRIVE_DRIVE_ID: ${{ secrets.RCLONE_ONEDRIVE_DRIVE_ID }}
+          RCLONE_ONEDRIVE_DRIVE_TYPE: personal
+          dest_path: /debianrepo

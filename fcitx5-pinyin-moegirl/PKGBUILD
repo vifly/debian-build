@@ -1,0 +1,16 @@
+# Maintainer: Vily <viflythink@gmail.com>
+pkgname=fcitx5-pinyin-moegirl
+pkgver=20211014
+pkgrel=1
+pkgdesc="Fcitx 5 Pinyin Dictionary from zh.moegirl.org.cn"
+url="https://github.com/outloudvi/mw2fcitx"
+depends=('fcitx5-chinese-addons')
+arch=('any')
+license=('CC-BY-NC-SA')
+source=(${url}/releases/download/${pkgver}/moegirl.dict 'copyright')
+sha256sums=('631e38158a662ff0a2c48fbfbb364c03ebea90cf252d867c907eddc23e207913' 'caf32365d76f44c780e3ef29b44e1d7c15cc8aaef00480657cde91dbff65585a')
+
+package() {
+  install -Dm644 "moegirl.dict" "$pkgdir/usr/share/fcitx5/pinyin/dictionaries/moegirl.dict"
+  install -Dm644 "copyright" "$pkgdir/usr/share/doc/fcitx5-pinyin-moegirl/copyright"
+}

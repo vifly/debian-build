@@ -1,0 +1,48 @@
+name: 'Create Debian packages database and upload to OneDrive'
+inputs:
+  name:
+    required: true
+  target-release-codename:
+    description: 'The target Debian release codename of repo, e.g. bullseye.'
+    default: 'bullseye'
+  architecture:
+    default: 'amd64'
+  component:
+    default: 'main'
+  description:
+    required: true
+  gpg-privatekey:
+    description: 'Your GPG private key, used to sign repo.'
+  RCLONE_ONEDRIVE_CLIENT_ID:
+    required: true
+  RCLONE_ONEDRIVE_CLIENT_SECRET:
+    required: true
+  RCLONE_ONEDRIVE_REGION:
+    required: true
+  RCLONE_ONEDRIVE_TOKEN:
+    required: true
+  RCLONE_ONEDRIVE_DRIVE_ID:
+    required: true
+  RCLONE_ONEDRIVE_DRIVE_TYPE:
+    required: true
+  dest_path:
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  
+  env:
+    name: ${{ inputs.name }}
+    codename: ${{ inputs.target-release-codename }}
+    arch: ${{ inputs.architecture }}
+    component: ${{ inputs.component }}
+    description: ${{ inputs.description }}
+    gpg_key: ${{ inputs.gpg-privatekey }}
+    RCLONE_ONEDRIVE_CLIENT_ID: ${{ inputs.RCLONE_ONEDRIVE_CLIENT_ID }}
+    RCLONE_ONEDRIVE_CLIENT_SECRET: ${{ inputs.RCLONE_ONEDRIVE_CLIENT_SECRET }}
+    RCLONE_ONEDRIVE_REGION: ${{ inputs.RCLONE_ONEDRIVE_REGION }}
+    RCLONE_ONEDRIVE_TOKEN: ${{ inputs.RCLONE_ONEDRIVE_TOKEN }}
+    RCLONE_ONEDRIVE_DRIVE_ID: ${{ inputs.RCLONE_ONEDRIVE_DRIVE_ID }}
+    RCLONE_ONEDRIVE_DRIVE_TYPE: ${{ inputs.RCLONE_ONEDRIVE_DRIVE_TYPE }}
+    dest_path: ${{ inputs.dest_path }}
