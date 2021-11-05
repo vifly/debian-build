@@ -38,6 +38,8 @@ echo "priority optional" >> ./conf/options
 
 reprepro includedeb "$codename" *.deb
 
+apt-get install -y ca-certificates
+
 rm -rf ./conf
 rm -f *.deb
 rclone delete "onedrive:${dest_path:?}"
