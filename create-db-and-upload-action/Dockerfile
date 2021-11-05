@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -yqq && \
     apt-get install -y eatmydata
 
-RUN eatmydata apt-get install -y reprepro rclone && \
+RUN eatmydata apt-get install -y reprepro rclone wget && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
