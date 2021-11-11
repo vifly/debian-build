@@ -8,7 +8,7 @@ echo 'deb [signed-by=/usr/share/keyrings/makedeb-archive-keyring.gpg arch=all] h
 tee /etc/apt/sources.list.d/makedeb.list
 
 apt-get update -yqq && \
-eatmydata apt-get install -y makedeb
+eatmydata apt-get install -y makedeb-alpha
 
 # To make makedeb root_check happy
 useradd builder -m
