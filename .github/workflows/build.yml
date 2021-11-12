@@ -9,7 +9,7 @@ jobs:
   build:
     strategy:
       matrix:
-        pkgs: [fcitx5-pinyin-moegirl, fcitx5-pinyin-zhwiki, veracrypt]
+        pkgs: [fcitx5-pinyin-moegirl, fcitx5-pinyin-zhwiki, veracrypt, smartdns-china-list]
 
       fail-fast: false
       
