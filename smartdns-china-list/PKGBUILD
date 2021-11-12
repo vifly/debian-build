@@ -1,0 +1,28 @@
+# Maintainer: Vily <viflythink@gmail.com>
+pkgname=smartdns-china-list
+pkgver=0.20211112
+pkgrel=1
+pkgdesc="Configuration for hot China domains to accelerate via smartdns"
+arch=('any')
+url="https://github.com/felixonmars/dnsmasq-china-list"
+license=('WTFPL')
+depends=('smartdns')
+makedepends=('git')
+source=("git+https://github.com/felixonmars/dnsmasq-china-list.git")
+md5sums=('SKIP')
+
+pkgver() {
+  cd dnsmasq-china-list
+  echo 0.$(git log -1 --date=short --pretty=format:%cd | sed "s/-//g")
+}
+
+build() {
+  cd dnsmasq-china-list
+  make smartdns SERVER=china
+}
+
+package() {
+  install -Dm644 dnsmasq-china-list/accelerated-domains.china.smartdns.conf "$pkgdir/etc/smartdns/accelerated-domains.china.smartdns.conf"
+  install -Dm644 dnsmasq-china-list/apple.china.smartdns.conf "$pkgdir/etc/smartdns/apple.china.smartdns.conf"
+  install -Dm644 dnsmasq-china-list/google.china.smartdns.conf "$pkgdir/etc/smartdns/google.china.smartdns.conf"
+}
