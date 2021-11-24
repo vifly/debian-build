@@ -8,7 +8,7 @@ depends=('fcitx5-chinese-addons')
 arch=('any')
 license=('CC-BY-NC-SA')
 source=(${url}/releases/download/${pkgver}/moegirl.dict 'copyright')
-sha256sums=('631e38158a662ff0a2c48fbfbb364c03ebea90cf252d867c907eddc23e207913' '74e030063ccd8a79187ff07d37c1282c3367a8e7293b69edab901aa8095619f8')
+sha256sums=('7ed56c4ef26ac204684f3d45c2ff3790f8a286fcaaca8b2571532ecbe7702e92' '74e030063ccd8a79187ff07d37c1282c3367a8e7293b69edab901aa8095619f8')
 
 package() {
   install -Dm644 "moegirl.dict" "$pkgdir/usr/share/fcitx5/pinyin/dictionaries/moegirl.dict"
