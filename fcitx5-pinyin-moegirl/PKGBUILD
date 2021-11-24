@@ -1,6 +1,6 @@
 # Maintainer: Vily <viflythink@gmail.com>
 pkgname=fcitx5-pinyin-moegirl
-pkgver=20211014
+pkgver=20211116
 pkgrel=1
 pkgdesc="Fcitx 5 Pinyin Dictionary from zh.moegirl.org.cn"
 url="https://github.com/outloudvi/mw2fcitx"
