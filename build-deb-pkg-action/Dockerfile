@@ -8,6 +8,7 @@ RUN eatmydata apt-get install -y \
             devscripts \
             build-essential \
             wget \
+            curl \
             sudo \
             && \
     apt-get clean && \
