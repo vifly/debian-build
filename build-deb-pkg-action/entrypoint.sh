@@ -17,4 +17,4 @@ chmod -R a+rw .
 
 cd "$pkg_name" || exit 1
 
-sudo --set-home -u builder makedeb -s
+echo "y" | sudo --set-home -u builder makedeb -s
