@@ -9,6 +9,7 @@ RUN eatmydata apt-get install -y \
             build-essential \
             wget \
             curl \
+            zstd \
             sudo \
             && \
     apt-get clean && \
