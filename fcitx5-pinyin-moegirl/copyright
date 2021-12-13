@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 
 Files:     *
-Copyright: 2021 All authors of ogiginal text
+Copyright: 2021 All authors of original text
 License:   CC-BY-NC-SA
 
 Files:     PKGBUILD

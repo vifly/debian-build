@@ -10,7 +10,7 @@ depends=('fcitx5-chinese-addons')
 arch=('any')
 license=('GFDL' 'CC-BY-SA')
 source=(${url}/releases/download/$_converterver/zhwiki-$_webslangver.dict 'copyright')
-sha256sums=('76e70d95bfd2d6ae5afd052796c9b01f45ef8da2e02b7a83878c92581f8c3dbe' '2ca2eb5cf7c1adfe19c220b4079d8b280cd6510dfb7ece7bc1055fa88bfda5af')
+sha256sums=('76e70d95bfd2d6ae5afd052796c9b01f45ef8da2e02b7a83878c92581f8c3dbe' '6c6baa3d89175f6ebb8e2978aab5c13c49ef7567ac3dbb85c2c40f39095dd99d')
 
 package() {
   install -Dm644 "zhwiki-$_webslangver.dict" "$pkgdir/usr/share/fcitx5/pinyin/dictionaries/zhwiki.dict"
