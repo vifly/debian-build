@@ -3,8 +3,8 @@ inputs:
   name:
     required: true
   target-release-codename:
-    description: 'The target Debian release codename of repo, e.g. bullseye.'
-    default: 'bullseye'
+    description: 'The target Debian release codename of repo, e.g. bookworm.'
+    default: 'bookworm'
   architecture:
     default: 'amd64'
   component:
