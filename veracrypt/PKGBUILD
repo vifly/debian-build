@@ -5,11 +5,11 @@ pkgver=1.25.9
 pkgrel=1
 pkgdesc='Disk encryption with strong security based on TrueCrypt'
 url='https://www.veracrypt.fr/'
-arch=('x86_64')
+arch=('amd64')
 license=('custom:TrueCrypt')
-depends=('fuse' 'libwxbase3.0-0v5' 'libsm6' 'libdevmapper-event1.02.1')
+depends=('fuse' 'libwxbase3.2-1' 'libsm6' 'libdevmapper-event1.02.1')
 optdepends=('sudo: mounting encrypted volumes as nonroot users')
-makedepends=('yasm' 'libfuse-dev' 'libwxgtk3.0-gtk3-dev' 'pkg-config')
+makedepends=('yasm' 'libfuse-dev' 'libwxgtk3.2-dev' 'pkg-config')
 source=(https://launchpad.net/veracrypt/trunk/${pkgver}/+download/VeraCrypt_${pkgver}_Source.tar.bz2
         no-makeself.patch
         veracrypt.desktop)
