@@ -1,11 +1,8 @@
 #!/bin/bash
 
-wget -qO - 'https://proget.hunterwittenborn.com/debian-feeds/makedeb.pub' | \
-gpg --dearmor | \
-tee /usr/share/keyrings/makedeb-archive-keyring.gpg &> /dev/null
+wget -qO - 'https://proget.makedeb.org/debian-feeds/makedeb.pub' | gpg --dearmor | tee /usr/share/keyrings/makedeb-archive-keyring.gpg 1> /dev/null
 
-echo 'deb [signed-by=/usr/share/keyrings/makedeb-archive-keyring.gpg arch=all] https://proget.hunterwittenborn.com/ makedeb main' | \
-tee /etc/apt/sources.list.d/makedeb.list
+echo 'deb [signed-by=/usr/share/keyrings/makedeb-archive-keyring.gpg arch=all] https://proget.makedeb.org/ makedeb main' | tee /etc/apt/sources.list.d/makedeb.list
 
 apt-get update -yqq && \
 eatmydata apt-get install -y makedeb
