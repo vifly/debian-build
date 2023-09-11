@@ -1,7 +1,7 @@
 # Maintainer: Vily <viflythink@gmail.com>
 pkgname=fcitx5-pinyin-zhwiki
 _converterver=0.2.4
-_webslangver=20230605
+_webslangver=20230823
 pkgver=$_converterver.$_webslangver
 pkgrel=1
 pkgdesc="Fcitx 5 Pinyin Dictionary from zh.wikipedia.org"
@@ -10,7 +10,7 @@ depends=('fcitx5-chinese-addons')
 arch=('any')
 license=('GFDL' 'CC-BY-SA')
 source=(${url}/releases/download/$_converterver/zhwiki-$_webslangver.dict 'copyright')
-sha256sums=('1b8e1b80e5a99d011b3fbf2275c3a86c4526da6fbb71833e502ab226ef83fbd1' '6c6baa3d89175f6ebb8e2978aab5c13c49ef7567ac3dbb85c2c40f39095dd99d')
+sha256sums=('68f24df0d5b14d356897ce6902ac763ba245c2d25a39288167c0d15ac3f30a6f' '6c6baa3d89175f6ebb8e2978aab5c13c49ef7567ac3dbb85c2c40f39095dd99d')
 
 package() {
   install -Dm644 "zhwiki-$_webslangver.dict" "$pkgdir/usr/share/fcitx5/pinyin/dictionaries/zhwiki.dict"
